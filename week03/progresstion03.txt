@@ -1,0 +1,28 @@
+ข้อ1.เป็นการสร้าง function ที่รับ rest parameter (...num) เพื่อรับ argument จำนวนเท่าไหร่ก็ได้ และเก็บไว้ในรูป array ใช้ for loop  
+function sum(...num){
+    let result = 0
+    for(let i = 0; i < arguments.length; i++) //ถ้า i น้อยกว่าจำนวนของ arguments ทั้งหมดก็จะให้ + num[i] เข้าไปใน result ไปเรื่อยๆจนครบ {
+        result = result + num[i]
+    }
+    return result
+}
+
+
+ข้อ2.ผมเขียน function plus คือ function บวกธรรมดาแล้วลองเอา function นี้ไปใช้ใน function multiply เป็นการใช้ function call
+function plus(num1,num2) {
+    return num1 + num2
+       
+}
+function multiply(num1,num2) {
+    let resultmultiply = plus(num1,num2) * (num1 + num2)
+        return resultmultiply
+}
+console.log(multiply(5,4))
+
+ข้อ3.เป็นการสร้าง function ซ้อน function โดยการสร้าง function calculate ที่มี function add(a,b){return a+b} อยู่ด้านใน แล้วสุดท้ายเรียกใช้ function add(x,y) * 2 เป็นการจบการทำงาน
+function calculate(x, y) {
+    function add(a, b) {  // ประกาศฟังก์ชัน add
+        return a + b
+    }
+    return add(x, y) * 2  // เรียกใช้ฟังก์ชัน add
+}
