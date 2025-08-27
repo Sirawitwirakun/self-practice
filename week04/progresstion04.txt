@@ -1,0 +1,57 @@
+อันนี้จะค่อยข้างยาวเพราะผมเอาจากที่เรียนในคาบมาเขียนซ้ำเผื่อให้ได้ชินกับการใช้งาน Method ต่างๆ
+เริ่มจาก (1.) .reverse คือการเรียง array ที่มีแบบกลับด้าน Ex. let a = [1,2,3,4] a.reverse output = [4,3,2,1]
+(2.) .forEach คือการ loop ผ่าน array ทุกตัวจากใน code 
+//Use forEach
+// let wordStartWithA = []
+// words.forEach((words) => {
+//     if(words.startsWith('a')){
+//     wordStartWithA.push(words)
+// }
+// })
+// console.log(wordStartWithA)
+จะเป็นการ loop แล้วใช้ Method .startsWith('a') คือหาค่าที่ขึ้นต้นด้วย a ทุกตัวใน array แล้วทำการ push คำนั้นเข้าไปใน array ว่างของ wordStartWithA
+(3.)จะเป็นการฝึกสร้าง function โดยใช้ arrow function กับ function declaration
+(4.)จะเป็นการใช้ .map เพื่อเอาข้อมูลที่เราต้องการ .map จะสร้าง array ใหม่ไม่มีผลต่อ original array โดยในโจทย์แรกอยากได้ Output เป็น firstname ต่อกับ lastname โดยให้ตัวอักษรเป็นตัวพิมพ์ใหญ่
+เราก็จะใช้ employees.map((employee) => employee.firstname.toUpperCase()+' '+employee.lastname.toUpperCase()) ในนี้ employee.firstname.toUpperCase() คือ เรียกชื่อจริงจาก employees มาแล้วทำให้เป็นตัวพิมพ์ใหญ่
+แล้ว + ' ' + เพื่อให้มีช่องว่างระหว่าวชื่อทำให้ดูง่ายขึ้น employee.lastname.toUpperCase() ก็คือการเอานามสกุลจาก employees มาทำให้เป็นตัวใหญ่ แล้วก็เก็บไว้ใน Variable ชื่อว่า fullname
+
+ในโจทย์ข้อสองอาจารย์ลองให้หา fullname ที่มีคำว่า JAI อยู่ใน fullname ด้วยผมก็เลยใส่ .filter((employee) => employee.firstname.toUpperCase().includes('JAI') || employee.lastname.toUpperCase().includes('JAI'))
+จาก code นี้เราก็จะเอาชื่อจริงและนามสกุลมาทำเป็นตัวพิมพ์ใหญ่และใช้ .includes('JAI') คือเช็คว่ามีคำว่า JAI อยู่ไหมแล้วผมก็ .map ออกมาทำให้มีแค่ fullname ที่มีคำว่า JAI อยู่ด้วยเท่านั้น
+// const employees = [
+//   {
+//     id: 'e1001',
+//     firstname: "Somchai",
+//     lastname: "Jaidee",
+//   },
+//   {
+//     id: 'e1002',
+//     firstname: "Pornchai",
+//     lastname: "Deejai",
+//   },
+//   {
+//     id: 'e1005',
+//     firstname: "Suda",
+//     lastname: "Rakdee",
+//   },
+// ]
+
+//Output [ 'SOMCHAI JAIDEE', 'PORNCHAI DEEJAI', 'SUDA RAKDEE' ]
+// const fullname = employees.map((employee) => employee.firstname.toUpperCase()+' '+employee.lastname.toUpperCase())
+// console.log(fullname)
+
+//Need output Fullname with JAI 
+// const fullname = employees
+// .filter((employee) => employee.firstname.toUpperCase().includes('JAI') || employee.lastname.toUpperCase().includes('JAI'))
+// .map((employee) => employee.firstname.toUpperCase()+' '+employee.lastname.toUpperCase())
+// console.log(fullname)
+
+(5.)ส่วนที่เหลือจะเป็นการลองใช้ Method แบบสั้นๆผมจะเขียนจากที่ผมเข้าใจแต่ละ Method เลยนะครับ
+.reduce = เป็นการรวมข้อมูลให้เหลือตัวเดียวโดยใช้ได้หลายวิธี
+
+.push = เพิ่มเข้าไปตัวสุดท้ายใน array
+.pop = ลบเข้าไปตัวสุดท้ายใน array
+.unshift = เพิ่มเข้าไปตัวแรกใน array
+.shift = ลบเข้าไปตัวแรกใน array
+.spice = เป็นการเพิ่ม item เข้าไปใน array โดยเลือกจุดที่จะเริ่มได้และเลือกจะลบ item หลังจากจุดเริ่มได้ด้วย syntax = .spice(start,deleteCount,'Item')
+.slice = เป็นการตัดส่วนหนึ่งของ array ออก syntax = slice(start, end)
+.fill = เหมือนเป็นการเปลี่ยนค่าใน array ให้เป็น values ที่กำหนดโดยเลือกจุดเริ่มและจุดสุดท้ายได้ syntax = .fill(values,start,end)
